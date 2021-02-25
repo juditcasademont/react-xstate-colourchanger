@@ -12,6 +12,9 @@ interface SDSContext {
     yes_no: boolean,
     rasa_guess: string,
     utterance: string,
+    command: string,
+    action: string,
+    object: string,
 }
 
 type SDSEvent =

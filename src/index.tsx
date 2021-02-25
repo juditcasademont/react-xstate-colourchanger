@@ -5,6 +5,7 @@ import { Machine, assign, send, State } from "xstate";
 import { useMachine, asEffect } from "@xstate/react";
 import { inspect } from "@xstate/inspect";
 import { dmMain } from "./main";
+import { dmHome } from "./dmSmartHome";
 
 
 inspect({
@@ -20,7 +21,8 @@ const machine = Machine<SDSContext, any, SDSEvent>({
     type: 'parallel',
     states: {
         dm: {
-            ...dmMain
+            //...dmMain
+            ...dmHome
         },
         asrtts: {
             initial: 'idle',

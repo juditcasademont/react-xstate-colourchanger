@@ -1,6 +1,8 @@
 import { MachineConfig, send, assign, Action } from "xstate";
 
-import { dmMachine, say, listen } from "./dmAppointment";
+//import { dmMachine, say, listen } from "./dmAppointment";
+import { dmMachine } from "./dmColourChanger";
+import { say, listen } from "./dmAppointment";
 
 function promptAndAsk(prompt: string): MachineConfig<SDSContext, any, SDSEvent> {
     return ({
