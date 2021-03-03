@@ -3,6 +3,7 @@ import { MachineConfig, send, assign, Action } from "xstate";
 //import { dmMachine, say, listen } from "./dmAppointment";
 import { dmMachine } from "./dmColourChanger";
 import { say, listen } from "./dmAppointment";
+import { dmImproved } from "./newAppointment";
 
 function promptAndAsk(prompt: string): MachineConfig<SDSContext, any, SDSEvent> {
     return ({
@@ -13,7 +14,7 @@ function promptAndAsk(prompt: string): MachineConfig<SDSContext, any, SDSEvent> 
 		on: { ENDSPEECH: 'ask' }
             },
             ask: {
-		entry: send('LISTEN'),
+		entry: send('LISTEN')
             },
 	}})
 }
@@ -71,7 +72,8 @@ export const dmMain: MachineConfig<SDSContext, any, SDSEvent> = ({
         },
     },
     appointment: {
-        ...dmMachine
+        //...dmMachine //This one is for the Lab 2 version
+        ...dmImproved //This one is for the Lab 4 version
     },
     todo: {
         initial: "prompt",

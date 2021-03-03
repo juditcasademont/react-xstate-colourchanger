@@ -15,11 +15,13 @@ interface SDSContext {
     command: string,
     action: string,
     object: string,
+    counter: number,
 }
 
 type SDSEvent =
     | { type: 'CLICK' }
     | { type: 'RECOGNISED' }
+    | { type: 'MAX' }
     | { type: 'ASRRESULT', value: string }
     | { type: 'ENDSPEECH' }
     | { type: 'LISTEN' }

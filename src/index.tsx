@@ -21,8 +21,8 @@ const machine = Machine<SDSContext, any, SDSEvent>({
     type: 'parallel',
     states: {
         dm: {
-            //...dmMain
-            ...dmHome
+            ...dmMain
+            //...dmHome
         },
         asrtts: {
             initial: 'idle',
@@ -45,7 +45,8 @@ const machine = Machine<SDSContext, any, SDSEvent>({
                                 assign((_context, event) => { return { recResult: event.value } })],
                             target: '.match'
                         },
-                        RECOGNISED: 'idle'
+                        RECOGNISED: 'idle',
+                        MAX: 'idle',
                     },
                     states: {
                         match: {
